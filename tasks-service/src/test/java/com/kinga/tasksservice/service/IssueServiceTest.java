@@ -1,9 +1,9 @@
-package com.kinga.tasksservice.service;
+package com.kinga.followtask.service;
 
-import com.kinga.tasksservice.dto.ValueDto;
-import com.kinga.tasksservice.entity.CustomFieldValue;
-import com.kinga.tasksservice.entity.*;
-import com.kinga.tasksservice.repository.CustomFieldRepository;
+import com.kinga.followtask.dto.ValueDto;
+import com.kinga.followtask.entity.CustomFieldValue;
+import com.kinga.followtask.entity.*;
+import com.kinga.followtask.repository.CustomFieldRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

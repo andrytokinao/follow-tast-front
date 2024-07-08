@@ -1,6 +1,6 @@
 package com.kinga.utils;
 
-import com.kinga.tasksservice.entity.Project;
+import com.kinga.followtask.entity.Project;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.util.StringUtils;
 
@@ -14,7 +14,7 @@ import java.util.StringJoiner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.kinga.tasksservice.entity.Project.BASE_DIRECTORY;
+import static com.kinga.followtask.entity.Project.BASE_DIRECTORY;
 
 public class KingaUtils {
     private static final String WORKWPACE = "WORK_SPACE";
