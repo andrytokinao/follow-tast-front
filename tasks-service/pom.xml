@@ -11,8 +11,8 @@
     <groupId>com.kinga</groupId>
     <artifactId>tasks-service</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>tasks-service</name>
-    <description>tasks-service</description>
+    <name>follow-task</name>
+    <description>follow-task</description>
     <properties>
         <java.version>19</java.version>
         <spqr-starter.version>0.0.4</spqr-starter.version>
@@ -159,5 +159,11 @@
             </plugin>
         </plugins>
     </build>
-
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub OWNER Repository</name>
+            <url>https://maven.pkg.github.com/andrytokinao/follow-task</url>
+        </repository>
+    </distributionManagement>
 </project>
