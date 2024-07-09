@@ -37,6 +37,6 @@ jobs:
           distribution: 'temurin'
 
       - name: Publish to GitHub Packages
-        run: tasks-service && mvn --batch-mode deploy
+        run: cd tasks-service && mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
