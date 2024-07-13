@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {MemberGroupe, User} from "../../../type/issue";
 import {UserService} from "../../../services/user.service";
 import {supprimerTypename} from "../../../type/graphql.operations";
+import {ssenvironment} from "../../../../environments/ssenvironment";
 
 @Component({
   selector: 'app-profile',
@@ -28,7 +29,7 @@ export class ProfileComponent  {
     if(this.tempPhoto)
       return this.tempPhoto;
     if (this.user && this.user.photo) {
-      return 'http://localhost:8081/photo/'+this.user.photo;
+      return  ssenvironment.apiURL+'/photo/'+this.user.photo;
     } else {
       return 'assets/photo.png';
     }
