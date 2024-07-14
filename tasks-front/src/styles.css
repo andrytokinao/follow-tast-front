@@ -280,7 +280,14 @@ h3 {
   background-color: yellow;
   color: black;
 }
-
+.photo {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 30px;
+  height: auto;
+  border-radius: 4px;
+}
 .footer {
   grid-row: 3 / 4;
   grid-column: 1 / 3;

@@ -153,6 +153,7 @@ const ALL_ISSUE = gql`
         id
         username
         firstName
+        lastName
         username
         photo
       }
