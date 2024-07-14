@@ -26,7 +26,7 @@ import {
   supprimerTypename, UN_USE_CUSTOM_FIELD,
   USE_CUSTOM_FIELD
 } from "../type/graphql.operations";
-import {ssenvironment} from "../../environments/ssenvironment";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root',
@@ -116,7 +116,7 @@ export class IssueService {
   }
   loadDirectory(issueId:number): Observable<Repertoire> {
     let params = new HttpParams().set('issueId', issueId);
-    let url =  ssenvironment.apiURL+"/api/load-directory?"+params.toString();
+    let url =  environment.apiURL+"api/load-directory?"+params.toString();
      return this.http
       .get<Repertoire>(url,{withCredentials:true },)
       .pipe(retry(1), catchError(this.handleError));
@@ -153,12 +153,12 @@ export class IssueService {
       fileNames.push(fn.absolutePath);
     })
     const queryString = `?fileNames=${fileNames.join(',')}` + "&directory=" + directory;
-    return  ssenvironment.apiURL+`/api/download${queryString}`;
+    return  environment.apiURL+`/api/download${queryString}`;
   }
   upload(file: File, dir:string): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
     formData.append('file', file);
-    const req = new HttpRequest('POST', `${ ssenvironment.apiURL}/api/upload?directory=`+dir, formData, {
+    const req = new HttpRequest('POST', `${ environment.apiURL}/api/upload?directory=`+dir, formData, {
       reportProgress: true,
       responseType: 'text'
     });

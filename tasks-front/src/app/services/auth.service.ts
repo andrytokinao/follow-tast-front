@@ -3,8 +3,7 @@ import {Injectable} from '@angular/core';
 import {CookieService} from "ngx-cookie-service";
 import {Observable} from "rxjs";
 import {User} from "../type/issue";
-import {environment} from "@ng-bootstrap/ng-bootstrap/environment";
-import {ssenvironment} from "../../environments/ssenvironment";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -16,13 +15,13 @@ export class AuthService {
   }
 
   login(username: string, password: string) {
-    const url = +ssenvironment.apiURL+'/login';
+    const url = +environment.apiURL+'login';
     const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
       'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
       'Accept-Language': 'fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3',
       'Origin': 'http://localhost:4200',
-      'Referer': ssenvironment.apiURL+'/login',
+      'Referer': environment.apiURL+'login',
       'Connection': 'keep-alive',
       'Upgrade-Insecure-Requests': '1',
       'Sec-Fetch-Dest': 'document',
@@ -35,7 +34,7 @@ export class AuthService {
     body.append('username', username);
     body.append('password', password);
     return new Observable<any>((observer)=>{
-      this.http.post(ssenvironment.apiURL+'/login', body, {observe: 'response',withCredentials:true}).subscribe(
+      this.http.post(environment.apiURL+'login', body, {observe: 'response',withCredentials:true}).subscribe(
         (res:any)=>{
           if(res.body.result == 'success') {
             observer.next("success");
@@ -65,7 +64,7 @@ export class AuthService {
           observer.next(this.profile);
           observer.complete();
         } else {
-          this.http.get(ssenvironment.apiURL+"/api/profile",{withCredentials:true}).subscribe(
+          this.http.get(environment.apiURL+"api/profile",{withCredentials:true}).subscribe(
             (res: any) => {
             if (JSON.stringify(res).localeCompare('login') === -1) {
               localStorage.setItem("user", res);
@@ -89,7 +88,7 @@ export class AuthService {
   }
   logout(){
     this.profile = null;
-    return this.http.get(ssenvironment.apiURL+'/logout',{withCredentials:true});
+    return this.http.get(environment.apiURL+'logout',{withCredentials:true});
   }
 
 }

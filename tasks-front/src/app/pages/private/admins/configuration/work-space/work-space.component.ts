@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {ConfigEntry, Issue, Project, Repertoire, User} from "../../../../../type/issue";
 import {HttpClient} from "@angular/common/http";
 import {ConfigService} from "../../../../../services/config.service";
-import {ssenvironment} from "../../../../../../environments/ssenvironment";
+import {environment} from "../../../../../../environments/environment";
 
 @Component({
   selector: 'app-work-space',
@@ -53,7 +53,7 @@ export class WorkSpaceComponent {
     console.log('Fichiers sélectionnés :', this.pathSelected);
   }
   loadDossier(){
-    this.http.get<Repertoire[]>( ssenvironment.apiURL+"/api/sous-dossier/root",{withCredentials:true}).subscribe(
+    this.http.get<Repertoire[]>( environment.apiURL+"api/sous-dossier/root",{withCredentials:true}).subscribe(
       res => {
         this.repertoire.repertoires = res;
       },

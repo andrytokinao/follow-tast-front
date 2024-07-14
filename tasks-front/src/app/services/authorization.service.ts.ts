@@ -4,7 +4,7 @@ import {AuthService} from "./auth.service";
 import {Injectable} from "@angular/core";
 import {Accessibility} from "../type/issue";
 import {HttpClient} from '@angular/common/http';
-import {ssenvironment} from "../../environments/ssenvironment";
+import {environment} from "../../environments/environment";
 
 
 @Injectable({
@@ -80,7 +80,7 @@ export class AuthGuard implements CanActivate {
         observer.next(this.accessibility);
         observer.complete();
       } else {
-        this.http.get<Accessibility>( ssenvironment.apiURL+"/api/accessibility", {
+        this.http.get<Accessibility>( environment.apiURL+"api/accessibility", {
           observe: 'response',
           withCredentials: true
         }).subscribe((res) => {
