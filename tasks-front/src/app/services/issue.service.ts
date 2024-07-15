@@ -158,7 +158,7 @@ export class IssueService {
   upload(file: File, dir:string): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
     formData.append('file', file);
-    const req = new HttpRequest('POST', `${ environment.apiURL}/api/upload?directory=`+dir, formData, {
+    const req = new HttpRequest('POST', `${ environment.apiURL}api/upload?directory=`+dir, formData, {
       reportProgress: true,
       responseType: 'text'
     });
