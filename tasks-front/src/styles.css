@@ -281,12 +281,15 @@ h3 {
   color: black;
 }
 .photo {
-  position: absolute;
   bottom: 10px;
   right: 10px;
   width: 30px;
   height: auto;
   border-radius: 4px;
+}
+.avatar__img--circle {
+  border-radius: 50%;
+  object-fit: cover;
 }
 .footer {
   grid-row: 3 / 4;
