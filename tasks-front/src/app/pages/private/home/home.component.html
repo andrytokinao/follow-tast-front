@@ -1,0 +1,18 @@
+
+<div class="container">
+
+  <a  class="btn" >Creer une nouvelle espace de travails</a>
+  <div class="card-list" >
+    <div class="card"  *ngFor=" let project of projects" (click)="selectProject(project)">
+      <div class="icon-container">
+        <i class="fas fa-hourglass-half fa-2x"></i>
+      </div>
+      <div class="card-content">
+        <h3>{{project.prefix  }}</h3>
+        <p>{{project.name}}</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>

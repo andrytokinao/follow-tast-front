@@ -15,7 +15,7 @@ const appRoutes: Routes = [
     loadChildren: () => import('./pages/public/public.module').then(m => m.PublicModule),
     //  canMatch: [userAdmin]
   },
-  {path: 'private', component: PrivateComponent }, {
+  {
     path: 'private',
     loadChildren: () => import('./pages/private/private.module').then(m => m.PrivateModule),
     //  canMatch: [userAdmin]

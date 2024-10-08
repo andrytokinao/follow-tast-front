@@ -2,42 +2,27 @@
   <h2>Liste des États</h2>
   <div class="card-list">
     <div class="card">
-      <div class="icon-container">
-        <i class="fas fa-hourglass-half fa-2x"></i>
-      </div>
       <div class="card-content">
-        <h3>Titre de la carte</h3>
+        <h3>Projets</h3>
         <p></p>
       </div>
     </div>
 
     <div class="card">
-      <div class="icon-container ">
-        <i class="fas fa-spinner fa-2x"></i>
-      </div>
       <div class="card-content">
-        <h3>Titre de la carte</h3>
-        <p>Description de la carte</p>
+        <h3>Mes taches</h3>
+        <p>Tous mes tache</p>
       </div>
     </div>
-    <div class="card">
-      <div class="icon-container closed">
-        <i class="fas fa-times-circle fa-2x"></i>
-      </div>
+    <div class="card" (click)="aplayFilter()">
+
       <div class="card-content">
-        <h3>Titre de la carte</h3>
-        <p>Description de la carte</p>
+        <h3 class="edit" (click)=" editFilter()">Filtre <i class="fas fa-edit"></i></h3>
+        <p>Ajous des filtre  </p>
+
       </div>
     </div>
-    <div class="card">
-      <div class="icon-container">
-        <i class="fas fa-check-circle fa-3x"></i>
-      </div>
-      <div class="card-content">
-        <h3>Titre de la carte</h3>
-        <p>Description de la carte</p>
-      </div>
-    </div>
+
   </div>
 
   <div class="mat-elevation-z8">

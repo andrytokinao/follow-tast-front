@@ -8,19 +8,16 @@ import {ProfileComponent} from "./profile/profile.component";
 import {AccessDeniedComponent} from "./access-denied/access-denied.component";
 import {AuthGuard} from "../../services/authorization.service.ts";
 import {ProjectResolverService} from "../../services/resolvers/project-resolver.service";
+import {HomeComponent} from "./home/home.component";
 
 const privateRoute: Routes = [
   {
     path: '',
     component: PrivateComponent,
-    children: [
-      {
-        path: '',
         children: [
-          { path: '',   redirectTo: 'project', pathMatch: 'full' },
+          { path: '', component: HomeComponent  },
           { path: 'profile', component: ProfileComponent  },
           { path: 'access-denied', component: AccessDeniedComponent },
-          { path: 'project/:project', component: ProjectComponent,resolve:{project:ProjectResolverService} } ,
           {
             path: 'project/:project',resolve:{project:ProjectResolverService},
             loadChildren: () => import('./project/project.module').then(m => m.ProjectModule),
@@ -33,8 +30,6 @@ const privateRoute: Routes = [
           },
 
         ]
-      }
-    ]
   }
 ];
 @NgModule({
@@ -42,4 +37,4 @@ const privateRoute: Routes = [
   exports: [
     RouterModule]
 })
-export class PrivateRoutingModule { }
+export class PrivateRoutingModule {}

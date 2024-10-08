@@ -14,13 +14,15 @@ import {CommonModule} from "@angular/common";
 import {MyCommonModule} from "../../common/common.module";
 import {ProfileComponent} from "./profile/profile.component";
 import {AccessDeniedComponent} from "./access-denied/access-denied.component";
+import {HomeComponent} from "./home/home.component";
 
 
 @NgModule({
   declarations: [
     PrivateComponent,
     ProfileComponent,
-    AccessDeniedComponent
+    AccessDeniedComponent,
+    HomeComponent
   ],
   imports: [
     PrivateRoutingModule,

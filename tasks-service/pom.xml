@@ -163,7 +163,7 @@
         <repository>
             <id>github</id>
             <name>GitHub OWNER Repository</name>
-            <url>https://maven.pkg.github.com/andrytokinao/follow-task</url>
+            <url>https://maven.pkg.github.com/andrytokinao/${project.artifactId}</url>
         </repository>
     </distributionManagement>
     <profiles>

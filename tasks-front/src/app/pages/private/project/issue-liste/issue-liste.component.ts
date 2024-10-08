@@ -64,4 +64,8 @@ export class IssueListeComponent implements OnInit ,AfterViewInit{
 
   }
 
+  editFilter() {
+  }
+  aplayFilter(){
+  }
 }

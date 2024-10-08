@@ -1,10 +1,7 @@
 package com.kinga.followtask.service;
 
 
-import com.kinga.followtask.config.ConfigMenue;
 import com.kinga.followtask.config.ConfigSystem;
-import com.kinga.followtask.config.ModuleMenue;
-import com.kinga.followtask.dto.Accessibility;
 import com.kinga.followtask.dto.UserDetailsDeto;
 import com.kinga.followtask.entity.UserApp;
 import com.kinga.followtask.repository.GroupeUserRepository;
@@ -12,7 +9,6 @@ import com.kinga.followtask.repository.MemberGroupeRepository;
 import com.kinga.followtask.repository.UserRepository;
 import com.kinga.utils.KingaUtils;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Example;
@@ -20,18 +16,17 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 
 import static com.kinga.utils.KingaUtils.*;
 

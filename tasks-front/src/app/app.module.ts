@@ -41,8 +41,6 @@ import {provideToastr, ToastrModule} from "ngx-toastr";
     HttpClientModule,
     GraphQLModule,
     MatToolbarModule,
-    AppRoutingModule,
-    MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
