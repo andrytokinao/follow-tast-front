@@ -1,0 +1,8 @@
+<div class="modal-body">
+  <div class="icon-list" >
+    <a *ngFor="let icon of icons" (click)="selectIcon(icon)" class="icon-item" >
+      <i class="{{icon.value}} fa-2x" aria-hidden="true"></i>
+    </a>
+  </div>
+</div>
+
