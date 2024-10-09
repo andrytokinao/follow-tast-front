@@ -10,6 +10,7 @@ import {ActivatedRoute} from "@angular/router";
 import {MatTableDataSource, MatTableModule} from "@angular/material/table";
 import {MatPaginator, MatPaginatorModule} from "@angular/material/paginator";
 import {MyCommonModule} from "../../../../common/common.module";
+import {ViewEditIssueComponent} from "../modal/view-edit-issue/view-edit-issue.component";
 
 @Component({
   selector: 'app-issue-liste',
@@ -59,6 +60,14 @@ export class IssueListeComponent implements OnInit ,AfterViewInit{
         });
       }
     });
+  }
+  editIssue(issue:Issue){
+      const dialogRef = this.modalService.open(ViewEditIssueComponent, {windowClass: "xlModal"});
+      dialogRef.componentInstance.issue = issue;
+      dialogRef.componentInstance.users = this.users;
+      dialogRef.result.then((result) => {
+        this.currentIssue = null;
+      })
   }
   ngOnInit(): void {
 
