@@ -105,9 +105,7 @@ public class ProjectService {
         if (!"complete".equalsIgnoreCase(installation)) {
             configEntry.setInstalationState("rivate/admin/project/choose-groupe?project=" + project.getPrefix());
         }
-        if (Project.CONFIG_STATE1.equalsIgnoreCase(project.getStatusConfig())) {
-            project.setStatusConfig(Project.CONFIG_STATE2);
-        }
+
         configRepository.save(configEntry);
         issueTypeRepository.save(issueType);
         return issueTypeRepository.findByProjectId(issueType.getProject().getId());
@@ -138,20 +136,20 @@ public class ProjectService {
     }
 
     // Etape 4 : Creation des different status dans un workflow ==> Creation / Selection de groupe pour une type
-    public WorkFlow addStatus(Status status, WorkFlow workFlow, Integer issueTypeId) {
-        ConfigEntry configEntry = configRepository.getByActiveIs(true);
-        String installation = configEntry.getInstalationState();
-        if (!"complete".equalsIgnoreCase(installation)) {
-            configEntry.setInstalationState("create-project/groupe-for-issueType?issueType=" + issueTypeId);
-        }
+    public WorkFlow addStatus(Status status, WorkFlow workFlow) {
         if(status.getIcone() != null)
             iconeRepository.save(status.getIcone());
         status = statusRepository.save(status);
+        workFlow = workFlowRepository.findById (workFlow.getId ()).get ();
+        Status finalStatus = status;
+        boolean existe = workFlow.getStatuses ().stream()
+                .anyMatch(s -> s.getId() == finalStatus.getId ());
+        if (existe)
+            return workFlow;
         workFlow.getStatuses().add(status);
         String statusIds = workFlow.getStatesIds();
         statusIds += (StringUtils.isEmpty(statusIds) ? "" : ",") + status.getId();
         workFlow.setStatesIds(statusIds);
-        configRepository.save(configEntry);
         logger.debug("add status "+status.toString() +" " + workFlow.toString() + " "+workFlow.getProject().toString());
         return workFlowRepository.save(workFlow);
     }

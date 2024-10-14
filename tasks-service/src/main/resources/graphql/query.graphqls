@@ -8,6 +8,7 @@ type Query {
     allComment(issueId:Int):[Comment]
     allFiles(issueId:Int):[File]
     allCustomFieldByIssue(issueId:Int):[CustomField]
+    getCustomField(id:Int):CustomField
     getValues(issueId:Int):[CustomFieldValue]
     loadDirectory(issueId:Int):Repertoire
     loadGroupeMember(userId:String):[MemberGroupe]

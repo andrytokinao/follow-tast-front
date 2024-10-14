@@ -15,4 +15,7 @@ public class Icone {
     @Column(name = "\"icon_value\"")
     private String value;
     private String typeIcone;
+    public String toString(){
+        return "";
+    }
 }

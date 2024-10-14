@@ -18,9 +18,12 @@ import {IssueTypeComponent} from "./issue-type/issue-type.component";
 import {ConfigProjectRoutingModule} from "./config-project.routing.module";
 import {ConfigCustomFieldComponent} from "./config-custom-field/config-custom-field.component";
 import {DataRowOutlet} from "@angular/cdk/table";
-import {EditCustomFieldComponent} from "./config-custom-field/edit-custom-field/edit-custom-field.component";
+import {NewCustomFieldComponent} from "./config-custom-field/new-custom-field/new-custom-field.component";
 import {MatListOption, MatSelectionList} from "@angular/material/list";
 import {CdkDropList} from "@angular/cdk/drag-drop";
+import {PopupCustomFieldComponent} from "./config-custom-field/popup-custom-field/popup-custom-field.component";
+import {PopupWorkFlowComponent} from "./work-flow/popup-work-flow/popup-work-flow.component";
+import {WorkFlowComponent} from "./work-flow/work-flow.component";
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import {CdkDropList} from "@angular/cdk/drag-drop";
     WorkFlowStatusComponent,
     DialogOverviewComponent,
     WorkFlowStatusComponent,
-    IssueTypeComponent
+    IssueTypeComponent,
+    PopupCustomFieldComponent,
+    PopupWorkFlowComponent,
+    WorkFlowComponent
   ],
     imports: [
         MatTabsModule,

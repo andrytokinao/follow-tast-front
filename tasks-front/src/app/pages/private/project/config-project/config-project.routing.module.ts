@@ -5,6 +5,8 @@ import {DialogOverviewComponent} from "./dialog-overview/dialog-overview.compone
 import {AuthGuard} from "../../../../services/authorization.service.ts";
 import {ConfigCustomFieldComponent} from "./config-custom-field/config-custom-field.component";
 import {IssueTypeComponent} from "./issue-type/issue-type.component";
+import {WorkFlowComponent} from "./work-flow/work-flow.component";
+import {StorageComponent} from "./storage/storage.component";
 
 
 const createProject: Routes = [
@@ -19,7 +21,8 @@ const createProject: Routes = [
           { path: 'create', component: DialogOverviewComponent ,canActivate:[AuthGuard], data: { roles: ['CAN_CREATE_PROJECT','CAN_ACCESS_ALL']} },
           { path: 'issue-type', component: IssueTypeComponent ,canActivate:[AuthGuard] , data: { roles: ['CAN_CREATE_PROJECT','CAN_ACCESS_ALL']}},
           { path: 'custom-field', component: ConfigCustomFieldComponent ,canActivate:[AuthGuard] , data: { roles: ['CAN_CREATE_PROJECT','CAN_ACCESS_ALL']}},
-          { path: 'work-flow-status', component: DialogOverviewComponent , canActivate:[AuthGuard] , data: { roles: ['CAN_CREATE_PROJECT','CAN_ACCESS_ALL']}},
+          { path: 'work-flow', component: WorkFlowComponent , canActivate:[AuthGuard] , data: { roles: ['CAN_CREATE_PROJECT','CAN_ACCESS_ALL']}},
+          { path: 'storage', component: StorageComponent , canActivate:[AuthGuard] , data: { roles: ['CAN_CREATE_PROJECT','CAN_ACCESS_ALL']}},
         ]
       }
     ]

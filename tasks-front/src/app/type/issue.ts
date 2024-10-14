@@ -65,6 +65,7 @@ export interface CustomField {
   id:number;
   name:String;
   type:string;
+  issueTypes:UsingCustomField[],
 }
 
 export interface CustomFieldValue {
@@ -117,6 +118,7 @@ export interface IssueType{
   project:Project
  curentWorkFlow:WorkFlow;
   usingCustomFields : UsingCustomField[]
+  icone :Icone | undefined;
 
 }
 export interface WorkFlow {

@@ -1,8 +1,14 @@
 <div class="card-list" >
   <div class="card  menu-item" routerLink="issue-type" routerLinkActive="active">
     <div class="card-content" >
-      <h3> <i class="fas fa-hourglass-half fa-1x"></i> Work flow </h3>
-      <p>Configurer les types et flux de traveaux</p>
+      <h3> <i class="fas fa-hourglass-half fa-1x"></i> Type de tache </h3>
+      <p>Configurer les types </p>
+    </div>
+  </div>
+  <div class="card  menu-item" routerLink="work-flow" routerLinkActive="active">
+    <div class="card-content" >
+      <h3> <i class="fas fa-hourglass-half fa-1x"></i> Flux de travail </h3>
+      <p>Configurer Flux de travail</p>
     </div>
   </div>
   <div class="card menu-item" routerLinkActive="active" routerLink="custom-field" routerLinkActive="active">
@@ -12,4 +18,6 @@
     </div>
   </div>
 </div>
-<router-outlet></router-outlet>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

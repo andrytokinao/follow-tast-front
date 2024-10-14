@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditCustomFieldComponent } from './edit-custom-field.component';
+import { PopupWorkFlowComponent } from './popup-work-flow.component';
 
-describe('EditCustomFieldComponent', () => {
-  let component: EditCustomFieldComponent;
-  let fixture: ComponentFixture<EditCustomFieldComponent>;
+describe('PopupWorkFlowComponent', () => {
+  let component: PopupWorkFlowComponent;
+  let fixture: ComponentFixture<PopupWorkFlowComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EditCustomFieldComponent]
+      imports: [PopupWorkFlowComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(EditCustomFieldComponent);
+    fixture = TestBed.createComponent(PopupWorkFlowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

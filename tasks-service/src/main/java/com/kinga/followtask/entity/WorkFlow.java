@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
+
 
 import java.util.LinkedList;
 import java.util.List;
@@ -13,7 +13,6 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class WorkFlow {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,5 +28,9 @@ public class WorkFlow {
     private List<IssueType> issueTypes;
     @ManyToMany
     private List<CrossingStatus> crossingStates;
+    public String addStatus(Status status){
+        // todo
+        return "";
+    }
 
 }

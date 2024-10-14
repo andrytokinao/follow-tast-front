@@ -333,4 +333,8 @@ public class IssueService {
         }
         return issueRepository.getById (is.getId ());
     }
+
+    public CustomField getCustomField (Long id) {
+        return customFieldRepository.getById (id);
+    }
 }

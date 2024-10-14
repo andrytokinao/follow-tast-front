@@ -20,7 +20,7 @@ import {stripTypename} from "@apollo/client/utilities";
 import {error} from "@angular/compiler-cli/src/transformers/util";
 import {
   ALL_CUSTOM_FIELD,
-   CUSTOM_FIELD_BY_ISSUE_TYPE,
+  CUSTOM_FIELD_BY_ISSUE_TYPE, GET_CUSTOM_FIELD,
   ISSUE_BY_CRITERIA,
   SAVE_CONFIG,
   supprimerTypename, UN_USE_CUSTOM_FIELD,
@@ -246,7 +246,8 @@ export class IssueService {
     return new Observable<WorkFlow|any>((observer)=>{
       this.apollo.mutate({
         mutation: operation.ADD_STATUS,
-        variables: {status,workFlow,issueTypeId}
+        variables: {status,workFlow},
+        fetchPolicy:"network-only"
       }).subscribe((res:any)=>{
         observer.next(stripTypename(res.data.addStatus));
         observer.complete();
@@ -357,11 +358,28 @@ export class IssueService {
     })
 
   }
+  getCustomField(id) {
+    return new Observable<CustomField>(observer =>{
+      this.apollo.query({
+        query:GET_CUSTOM_FIELD,
+        variables:{id},
+        fetchPolicy:"network-only"
+      }).subscribe((res:any)=>{
+        observer.next(res.data.getCustomField);
+        observer.complete();
+      },error => {
+        console.error(error);
+        observer.error(error);
+        observer.complete();
+      })
+    })
+  }
   useCustomField(usingCustomField:UsingCustomField) {
     return new Observable<UsingCustomField[]>(observer => {
       this.apollo.mutate({
         mutation:USE_CUSTOM_FIELD,
-        variables:{usingCustomField}
+        variables:{usingCustomField},
+        fetchPolicy:"network-only"
       }).subscribe((res:any)=>{
         observer.next(res.data.useCustomField);
         observer.complete();
@@ -377,7 +395,8 @@ export class IssueService {
     return new Observable<UsingCustomField[]>(observer => {
       this.apollo.mutate({
         mutation:UN_USE_CUSTOM_FIELD,
-        variables:{usingCustomField}
+        variables:{usingCustomField},
+        fetchPolicy:"network-only"
       }).subscribe((res:any)=>{
           observer.next(res.data.unUseCustomField);
           observer.complete();

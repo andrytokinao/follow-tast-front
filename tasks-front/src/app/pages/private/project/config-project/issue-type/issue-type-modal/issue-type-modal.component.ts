@@ -14,6 +14,7 @@ import {MatCheckbox} from "@angular/material/checkbox";
 import {CdkDragDrop, moveItemInArray} from "@angular/cdk/drag-drop";
 import {supprimerTypename} from "../../../../../../type/graphql.operations";
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import {MatSelectionList} from "@angular/material/list";
 
 @Component({
   selector: 'app-issue-type-modal',
@@ -30,7 +31,8 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
     MyCommonModule,
     NgForOf,
     NgIf,
-    MatCheckbox
+    MatCheckbox,
+    MatSelectionList
   ],
   templateUrl: './issue-type-modal.component.html',
   styleUrl: './issue-type-modal.component.css'

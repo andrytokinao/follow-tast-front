@@ -2,7 +2,7 @@ type CustomField {
     id:Int
     name:String
     type:String
-    issueTypes:[IssueType]
+    issueTypes:[UsingCustomField]
 }
 type Comment {
     id:Int

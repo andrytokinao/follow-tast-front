@@ -66,7 +66,21 @@ export class ChooseDialogComponent {
     {"typeIcone":"class", "value": "fa fa-file", "id": "\uf15b"},
     {"typeIcone":"class", "value": "fa fa-balance-scale", "id": "\uf24e"},
     {"typeIcone":"class", "value": "fa fa-comment", "id": "\uf075"},
-    {"typeIcone":"class", "value": "fa fa-id-badge", "id": "\uf2c1"}
+    {"typeIcone":"class", "value": "fa fa-id-badge", "id": "\uf2c1"},
+    {"typeIcone":"class", "value": "fa fa-save", "id": "\uf0c7"},
+    {"typeIcone":"class", "value": "fa fa-trash", "id": "\uf1f8"},
+    {"typeIcone":"class", "value": "fa fa-undo", "id": "\uf0e2"},
+    {"typeIcone":"class", "value": "fa fa-redo", "id": "\uf01e"},
+    {"typeIcone":"class", "value": "fa fa-print", "id": "\uf02f"},
+    {"typeIcone":"class", "value": "fa fa-download", "id": "\uf019"},
+    {"typeIcone":"class", "value": "fa fa-upload", "id": "\uf093"},
+    {"typeIcone":"class", "value": "fa fa-search", "id": "\uf002"},
+    {"typeIcone":"class", "value": "fa fa-pencil-alt", "id": "\uf303"},
+    {"typeIcone":"class", "value": "fa fa-copy", "id": "\uf0c5"},
+    {"typeIcone":"class", "value": "fa fa-cut", "id": "\uf0c4"},
+    {"typeIcone":"class", "value": "fa fa-paste", "id": "\uf0ea"},
+    {"typeIcone":"class", "value": "fa fa-lock", "id": "\uf023"},
+    {"typeIcone":"class", "value": "fa fa-unlock", "id": "\uf09c"}
   ];
 
   sele

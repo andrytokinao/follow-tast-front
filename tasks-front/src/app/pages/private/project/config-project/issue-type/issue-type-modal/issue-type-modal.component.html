@@ -35,16 +35,19 @@
     <mat-tab label="Champ personnalisé">
       <mat-card class="mat-padding">
         <div class="sidebar-heding ">
-          <div *ngFor="let field of customFields">
-            <mat-checkbox
-              class="example-margin"
-              [checked]="isSelected(field)"
-              [indeterminate]="partiallyComplete()"
-              (change)="onCheckboxChange($event,field)"
-            >
-              {{ field.name }}
-            </mat-checkbox>
-          </div>
+          <mat-selection-list>
+            <div *ngFor="let field of customFields">
+              <mat-checkbox
+                class="example-margin"
+                [checked]="isSelected(field)"
+                [indeterminate]="partiallyComplete()"
+                (change)="onCheckboxChange($event,field)"
+              >
+                {{ field.name }}
+              </mat-checkbox>
+            </div>
+          </mat-selection-list>
+
           <section class="example-section">
   <span class="example-list-section">
 

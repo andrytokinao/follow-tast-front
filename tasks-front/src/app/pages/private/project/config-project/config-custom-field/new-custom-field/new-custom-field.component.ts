@@ -13,11 +13,11 @@ interface Field {
 @Component({
   selector: 'app-edit-custom-field',
   standalone: true,
-  templateUrl: './edit-custom-field.component.html',
+  templateUrl: './new-custom-field.component.html',
   imports: [MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule],
-  styleUrl: './edit-custom-field.component.css'
+  styleUrl: './new-custom-field.component.css'
 })
-export class EditCustomFieldComponent {
+export class NewCustomFieldComponent {
   customField: CustomField  | any= {};
   constructor(
     public activeModal: NgbActiveModal,

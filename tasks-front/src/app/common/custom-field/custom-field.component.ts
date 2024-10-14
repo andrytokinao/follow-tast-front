@@ -8,7 +8,7 @@ import {
   ViewContainerRef
 } from '@angular/core';
 import {DisplayCustomfielFactoryService} from "../../services/display-customfiel-factory.service";
-import {CustomFieldValue, DisplayCustomField} from "../../type/issue";
+import {CustomField, CustomFieldValue, DisplayCustomField, Icone} from "../../type/issue";
 import {NgIf} from "@angular/common";
 
 @Component({
@@ -62,5 +62,18 @@ export class CustomFieldComponent implements OnInit{
 
   toggleEdit() {
     this.instance.isEditing = true;
+  }
+
+
+  public static getIcone(customField:CustomField): any {
+    const icons = new Map([
+      ["Date", { "typeIcone": "class", "value": "fa fa-calendar-alt", "id": "\uf073" }],
+      ["Number", { "typeIcone": "class", "value": "fa fa-sort-numeric-up", "id": "\uf163" }],
+      ["Issue", { "typeIcone": "class", "value": "fa fa-exclamation-circle", "id": "\uf06a" }],
+      ["String", { "typeIcone": "class", "value": "fa fa-font", "id": "\uf031" }],
+      ["Link", { "typeIcone": "class", "value": "fa fa-link", "id": "\uf0c1" }],
+      ["User", { "typeIcone": "class", "value": "fa fa-user", "id": "\uf007" }]
+    ]);
+    return icons.get(customField.type);
   }
 }

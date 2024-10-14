@@ -487,8 +487,8 @@ const  AFFECT_WORKFLOW = gql`
   }
 `;
 const  ADD_STATUS = gql`
-  mutation addStatus ($status:StatusInput ,$workFlow:WorkFlowInput, $issueTypeId:Int!) {
-    addStatus(workFlow: $workFlow, status: $status, issueTypeId: $issueTypeId){
+  mutation addStatus ($status:StatusInput ,$workFlow:WorkFlowInput) {
+    addStatus(workFlow: $workFlow, status: $status){
       id
       name
       statuses {
@@ -650,11 +650,13 @@ const SEVE_CUSTOM_FIELD = gql`
         type
         issueTypes {
           id
-          name
-          icone {
+          issueType {
             id
-            value
-            typeIcone
+          }
+          customField {
+            id
+            type
+            name
           }
         }
       }
@@ -668,8 +670,14 @@ const ALL_CUSTOM_FIELD = gql`
        name
        issueTypes {
          id
-         name
-         prefix
+         issueType {
+           id
+         }
+         customField {
+           id
+           type
+           name
+         }
        }
        type
      }
@@ -694,7 +702,24 @@ const USE_CUSTOM_FIELD = gql`
           }
         }
       }
-    }
+    }`
+const GET_CUSTOM_FIELD = gql `
+   query getCustomField($id:Int) {
+     getCustomField(id: $id) {
+       id
+       name
+       issueTypes {
+         id
+         issueType {
+           id
+           name
+         }
+         customField {
+           id
+         }
+       }
+     }
+   }
 `
 const UN_USE_CUSTOM_FIELD = gql`
     mutation unUseCustomField($usingCustomField:UsingCustomFieldInput!) {
@@ -802,7 +827,8 @@ export {
   USE_CUSTOM_FIELD,
   UN_USE_CUSTOM_FIELD,
   CUSTOM_FIELD_BY_ISSUE_TYPE,
-  ASSIGNE_TO_USER
+  ASSIGNE_TO_USER,
+  GET_CUSTOM_FIELD
 }
 function  supprimerTypename<T>(objet: T): T {
   if (!objet || typeof objet !== 'object') {

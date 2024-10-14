@@ -5,18 +5,22 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ConfigService} from "../../../../../services/config.service";
 import {IssueService} from "../../../../../services/issue.service";
-import {EditCustomFieldComponent} from "./edit-custom-field/edit-custom-field.component";
+import {NewCustomFieldComponent} from "./new-custom-field/new-custom-field.component";
 import {CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
 import {MyCommonModule} from "../../../../../common/common.module";
 import {NgForOf, NgIf} from "@angular/common";
 import {supprimerTypename} from "../../../../../type/graphql.operations";
+import {MatList, MatListItem} from "@angular/material/list";
+import {CustomFieldComponent} from "../../../../../common/custom-field/custom-field.component";
+import {IssueTypeModalComponent} from "../issue-type/issue-type-modal/issue-type-modal.component";
+import {PopupCustomFieldComponent} from "./popup-custom-field/popup-custom-field.component";
 
 @Component({
   selector: 'config-app-custom-field',
   templateUrl: './config-custom-field.component.html',
   styleUrl: './config-custom-field.component.css',
   standalone: true,
-  imports: [CdkDropList, CdkDrag, MyCommonModule, NgForOf, NgIf],
+  imports: [CdkDropList, CdkDrag, MyCommonModule, NgForOf, NgIf, MatList, MatListItem],
 })
 export class ConfigCustomFieldComponent implements OnInit{
   activeModal: any;
@@ -37,7 +41,7 @@ export class ConfigCustomFieldComponent implements OnInit{
 
   }
   newCustomField(){
-    const dialogRef = this.modalService.open(EditCustomFieldComponent);
+    const dialogRef = this.modalService.open(NewCustomFieldComponent);
     dialogRef.componentInstance.project = this.project;
     dialogRef.result.then((result) => {
       this.customFields = result.customFields;
@@ -116,7 +120,16 @@ export class ConfigCustomFieldComponent implements OnInit{
       })
     }
   }
-  dropSelect($event: CdkDragDrop<CustomField[], any>) {
 
+  getIcone(field: CustomField) {
+    return  CustomFieldComponent.getIcone(field);
+  }
+  editCustomField(customField:CustomField) {
+    const dialogRef = this.modalService.open(PopupCustomFieldComponent,{windowClass: "xlModal"} );
+    dialogRef.componentInstance.issueTypes = this.project.issueTypes;
+    dialogRef.componentInstance.getCustomField(customField.id) ;
+    dialogRef.result.then((res) => {
+      this.issueType = res;
+    })
   }
 }

@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 import org.hibernate.jdbc.Work;
 
 import java.util.List;
@@ -13,7 +12,6 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public class Project {
 
     public static String BASE_DIRECTORY = "FOLLOW_TASK";
@@ -39,4 +37,11 @@ public class Project {
     @OneToMany(mappedBy = "project")
     private List<WorkFlow> workFlows;
 
+    @Override
+    public String toString () {
+        return "Project{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

@@ -13,7 +13,7 @@ type Mutation {
     saveIssueType(issueType:IssueTypeInput):[IssueType]
     saveWorkFlow(workFlow:WorkFlowInput):WorkFlow
     affectWorkFlow(issueType:IssueTypeInput):WorkFlow
-    addStatus(status:StatusInput, workFlow:WorkFlowInput, issueTypeId:Int):WorkFlow
+    addStatus(status:StatusInput, workFlow:WorkFlowInput):WorkFlow
     saveCustomField(customField:CustomFieldImput):[CustomField]
     useCustomField(usingCustomField:UsingCustomFieldInput):[UsingCustomField]
     unUseCustomField(usingCustomField:UsingCustomFieldInput):[UsingCustomField],

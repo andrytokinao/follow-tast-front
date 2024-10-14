@@ -122,8 +122,8 @@ public class GQIssueController {
         return projectService.affectWorkFlow(issueType);
     }
     @MutationMapping
-    public WorkFlow addStatus(@Argument  Status status, @Argument  WorkFlow workFlow, @Argument Integer issueTypeId){
-        return projectService.addStatus(status, workFlow, issueTypeId);
+    public WorkFlow addStatus(@Argument  Status status, @Argument  WorkFlow workFlow){
+        return projectService.addStatus(status, workFlow);
     }
     @QueryMapping
     public List<WorkFlow> allWorkFlow(){
@@ -164,6 +164,10 @@ public class GQIssueController {
      @MutationMapping
      public Issue assigneToUser(@Argument Issue issue) {
         return issueService.assigneToUser(issue);
+     }
+    @QueryMapping
+     public CustomField getCustomField(@Argument Long id) {
+        return issueService.getCustomField(id);
      }
 
 }
