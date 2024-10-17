@@ -169,5 +169,13 @@ public class GQIssueController {
      public CustomField getCustomField(@Argument Long id) {
         return issueService.getCustomField(id);
      }
+    @QueryMapping
+    public List<ConfigProject> getConfigProject (@Argument Long projectId) {
+        return projectService.getConfigProject (projectId);
+    }
 
+    @MutationMapping
+    public ConfigProject saveOrUpdateConfig (@Argument ConfigProject configProject) {
+        return projectService.saveOrUpdateConfig (configProject);
+    }
 }

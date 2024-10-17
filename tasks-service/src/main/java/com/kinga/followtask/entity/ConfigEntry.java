@@ -28,4 +28,5 @@ public class ConfigEntry {
     private String repertoireCodeValidation;
     private String instalationState;
     private String projectPrefix;
+
 }

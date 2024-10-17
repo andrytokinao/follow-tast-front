@@ -18,6 +18,7 @@ type Mutation {
     useCustomField(usingCustomField:UsingCustomFieldInput):[UsingCustomField]
     unUseCustomField(usingCustomField:UsingCustomFieldInput):[UsingCustomField],
     assigneToUser(issue:IssueInput):Issue
+    saveOrUpdateConfig(configProject:ConfigProjectInput):ConfigProject
 }
 
 

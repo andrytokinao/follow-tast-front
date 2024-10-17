@@ -367,7 +367,7 @@ const ALL_CONFIG = gql`
 `;
 
 const  SAVE_PROJECT = gql`
-  mutation saveProject ($project:ProjectInput!) {
+  mutation createProjectOrSave ($project:ProjectInput!) {
     createProjectOrSave(project: $project){
       id
       name
@@ -794,6 +794,24 @@ const ASSIGNE_TO_USER =  gql `
     }
 `;
 
+const GET_CONFIG_PROJECT =gql`
+  query getConfigProject($projectId:Int){
+    getConfigProject(projectId: $projectId){
+      id
+      groupe
+      value
+    }
+  }
+`
+const SAVE_CONFIG_PROJECT=gql`
+    mutation saveOrUpdateConfig($configProject:ConfigProjectInput){
+      saveOrUpdateConfig(configProject: $configProject){
+        id
+        groupe
+        value
+      }
+    }
+`
 export {
   supprimerTypename,
   SAVE_USER,
@@ -828,7 +846,9 @@ export {
   UN_USE_CUSTOM_FIELD,
   CUSTOM_FIELD_BY_ISSUE_TYPE,
   ASSIGNE_TO_USER,
-  GET_CUSTOM_FIELD
+  GET_CUSTOM_FIELD,
+  GET_CONFIG_PROJECT,
+  SAVE_CONFIG_PROJECT
 }
 function  supprimerTypename<T>(objet: T): T {
   if (!objet || typeof objet !== 'object') {

@@ -90,8 +90,8 @@ type Project{
     name:String
     prefix:String
     statusConfig:String
-    issueTypes:[IssueType] !
-    workFlows :[WorkFlow] !
+    issueTypes:[IssueType]
+    workFlows :[WorkFlow]
 }
 
 type RoleApp{
@@ -182,6 +182,11 @@ type UsingCustomField {
     id:Int
     customField:CustomField
     issueType:IssueType
+}
+type ConfigProject {
+    id:Int
+    groupe:String
+    value:String
 }
 input CustomFieldImput {
     id:Int
@@ -354,4 +359,9 @@ input UsingCustomFieldInput {
     id:Int
     customField:CustomFieldImput
     issueType:IssueTypeInput
+}
+input ConfigProjectInput {
+    id:Int
+    groupe:String
+    value:String
 }

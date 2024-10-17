@@ -1,7 +1,7 @@
 
 <div class="container">
 
-  <a  class="btn" >Creer une nouvelle espace de travails</a>
+  <a  class="btn" (click)="createProject()" >Creer une nouvelle espace de travails</a>
   <div class="card-list" >
     <div class="card"  *ngFor=" let project of projects" (click)="selectProject(project)">
       <div class="icon-container">

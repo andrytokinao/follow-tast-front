@@ -6,6 +6,7 @@ import {AuthService} from "../../../services/auth.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {UserService} from "../../../services/user.service";
 import {AuthGuard} from "../../../services/authorization.service.ts";
+import {PopupCreateProjectComponent} from "../popup-create-project/popup-create-project.component";
 
 @Component({
   selector: 'app-home',
@@ -33,5 +34,12 @@ export class HomeComponent implements OnInit{
   selectProject(project: Project) {
     this.project = project;
     this.router.navigate(["/private/project/"+project.prefix+"/liste"])
+  }
+
+  createProject(){
+    const dialogRef = this.modalService.open(PopupCreateProjectComponent,);
+    throw dialogRef.result.then(res=> {
+      this.selectProject(res);
+    })
   }
 }

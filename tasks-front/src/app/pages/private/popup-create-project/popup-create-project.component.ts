@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
-import {IssueService} from "../../../../../services/issue.service";
 import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
+import {IssueService} from "../../../services/issue.service";
+import {stripTypename} from "@apollo/client/utilities";
+import {Issue} from "../../../type/issue";
 
 @Component({
-  selector: 'app-project-name',
-  templateUrl: './project-name.component.html',
-  styleUrl: './project-name.component.css'
+  selector: 'app-popup-create-project',
+
+  templateUrl: './popup-create-project.component.html',
+  styleUrl: './popup-create-project.component.css'
 })
-export class ProjectNameComponent {
+export class PopupCreateProjectComponent {
+
   user: any;
   project: any = {
     id: null,
@@ -25,7 +29,8 @@ export class ProjectNameComponent {
     project.prefix = this.project.prefix;
     this.issueService.createProjectOrSave(project).subscribe(
       (res:any)=>{
-        this.activeModal.close({ issue: res.data.saveProject });
+        this.activeModal.close( stripTypename(res));
+
       },
       (error)=>{
         console.error(error);

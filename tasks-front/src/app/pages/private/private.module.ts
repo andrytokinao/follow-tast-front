@@ -15,6 +15,7 @@ import {MyCommonModule} from "../../common/common.module";
 import {ProfileComponent} from "./profile/profile.component";
 import {AccessDeniedComponent} from "./access-denied/access-denied.component";
 import {HomeComponent} from "./home/home.component";
+import {PopupCreateProjectComponent} from "./popup-create-project/popup-create-project.component";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {HomeComponent} from "./home/home.component";
     PrivateComponent,
     ProfileComponent,
     AccessDeniedComponent,
-    HomeComponent
+    HomeComponent,
+    PopupCreateProjectComponent
   ],
   imports: [
     PrivateRoutingModule,

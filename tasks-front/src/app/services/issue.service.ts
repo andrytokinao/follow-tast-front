@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpEvent, HttpHeaders, HttpParams, HttpRequest} from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import {observable, Observable, throwError} from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import {
   Issue,
@@ -12,7 +12,7 @@ import {
   Project,
   IssueType,
   WorkFlow,
-  Criteria, CustomField, UsingCustomField, CustomFieldValue
+  Criteria, CustomField, UsingCustomField, CustomFieldValue, ConfigProject
 } from "../type/issue";
 import {Apollo} from "apollo-angular";
 import * as operation from "../type/graphql.operations";
@@ -20,9 +20,9 @@ import {stripTypename} from "@apollo/client/utilities";
 import {error} from "@angular/compiler-cli/src/transformers/util";
 import {
   ALL_CUSTOM_FIELD,
-  CUSTOM_FIELD_BY_ISSUE_TYPE, GET_CUSTOM_FIELD,
+  CUSTOM_FIELD_BY_ISSUE_TYPE, GET_CONFIG_PROJECT, GET_CUSTOM_FIELD,
   ISSUE_BY_CRITERIA,
-  SAVE_CONFIG,
+  SAVE_CONFIG, SAVE_CONFIG_PROJECT,
   supprimerTypename, UN_USE_CUSTOM_FIELD,
   USE_CUSTOM_FIELD
 } from "../type/graphql.operations";
@@ -164,10 +164,18 @@ export class IssueService {
     });
     return this.http.request(req);
   }
-  saveProject(project: any) {
-    return this.apollo.mutate({
-      mutation:operation.SAVE_PROJECT,
-      variables: {project}
+  createProjectOrSave(project: any) {
+    return new Observable((observer)=>{
+      this.apollo.mutate({
+        mutation:operation.SAVE_PROJECT,
+        variables: {project}
+      }).subscribe((res:any)=>{
+        observer.next(res.data.createProjectOrSave );
+        observer.complete();
+      },error=>{
+        observer.error(error);
+        observer.complete();
+      })
     })
   }
   getProject(prefix:string){
@@ -422,6 +430,50 @@ export class IssueService {
           observer.complete();
         }
       )
+    })
+  }
+  getConfigProject(projectId:Number) {
+    return new Observable<ConfigProject[]>(observer => {
+      this.apollo.query({
+        query:GET_CONFIG_PROJECT,
+        variables:{projectId}
+      }).subscribe((res:any)=>{
+        observer.next(res.data.getConfigProject);
+        observer.complete();
+      },error => {
+        console.error(error);
+        observer.error(error);
+        observer.complete();
+      })
+    })
+  }
+
+  setConfigProjectPath(pathSelected: string, projectId) {
+    let configProject:any = {}
+    configProject.groupe = 'config.project.'+projectId+'.path';
+    configProject.value = pathSelected;
+    this.saveOrUpdateConfig(configProject).subscribe(res=>{
+      alert(JSON.stringify(res));
+    });
+  }
+  saveOrUpdateConfig(configProject:any){
+    alert('yug');
+    return new Observable<ConfigProject>(observer=> {
+      this.apollo.mutate({
+        mutation:SAVE_CONFIG_PROJECT,
+        variables:{configProject},
+        fetchPolicy:"network-only"
+      }).subscribe((res:any)=>{
+        alert(JSON.stringify(res));
+        observer.next(res.data.saveOrUpdateConfig);
+        observer.complete();
+      },error => {
+          alert(JSON.stringify(error));
+
+          observer.error(error);
+        observer.complete();
+        }
+        )
     })
   }
 }

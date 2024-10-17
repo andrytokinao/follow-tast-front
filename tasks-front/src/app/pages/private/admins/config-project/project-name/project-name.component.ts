@@ -23,9 +23,9 @@ export class ProjectNameComponent {
     project.id = this.project.id;
     project.name = this.project.name;
     project.prefix = this.project.prefix;
-    this.issueService.saveProject(project).subscribe(
+    this.issueService.createProjectOrSave(project).subscribe(
       (res:any)=>{
-        this.activeModal.close({ issue: res.data.saveProject });
+        this.activeModal.close({ issue: res.data.createProjectOrSave });
       },
       (error)=>{
         console.error(error);
