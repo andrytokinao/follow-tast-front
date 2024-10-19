@@ -1,0 +1,87 @@
+[
+  {
+    "id": 1,
+    "summary": "Titre du projet ",
+    "description": "Voici le description du projet ",
+    "creation": "11/01/2024",
+    "type": {
+      "id": 1,
+      "name": "Type 1"
+    },
+    "status": {
+      "id": 0,
+      "index": 1,
+      "displayName": "TODO"
+    },
+    "assigne": {},
+    "raporter": {}
+  },
+  {
+    "id": 1,
+    "summary": "Titre du projet ",
+    "description": "Voici le description du projet ",
+    "creation": "11/01/2024",
+    "type": {
+      "id": 1,
+      "name": "Type 1"
+    },
+    "status": {
+      "id": 1,
+      "index": 2,
+      "displayName": "En cours ..."
+    },
+    "assigne": {},
+    "raporter": {}
+  },
+  {
+    "id": 1,
+    "summary": "Titre du projet ",
+    "description": "Voici le description du projet ",
+    "creation": "11/01/2024",
+    "type": {
+      "id": 1,
+      "name": "Type 1"
+    },
+    "status": {
+      "id": 2,
+      "index": 3,
+      "displayName": "Validation "
+    },
+    "assigne": {},
+    "raporter": {}
+  },
+  {
+    "id": 1,
+    "summary": "Titre du projet ",
+    "description": "Voici le description du projet ",
+    "creation": "11/01/2024",
+    "type": {
+      "id": 1,
+      "name": "Type 1"
+    },
+    "status": {
+      "id": 3,
+      "index": 5,
+      "displayName": "Validé /  "
+    },
+    "assigne": {},
+    "raporter": {}
+  },
+  {
+    "id": 1,
+    "summary": "Titre du projet ",
+    "description": "Voici le description du projet ",
+    "creation": "11/01/2024",
+    "type": {
+      "id": 1,
+      "name": "Type 1"
+    },
+    "status": {
+      "id": 3,
+      "index": 4,
+      "displayName": "Livré "
+    },
+    "assigne": {},
+    "raporter": {}
+  }
+]

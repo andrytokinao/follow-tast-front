@@ -1,0 +1,22 @@
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
+
+}
+.icon-container {
+  background-color: #ccc;
+  border-radius: 50%;
+  display: flex;
+}
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

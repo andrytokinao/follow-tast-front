@@ -1,0 +1,16 @@
+.card{
+
+  min-width: 250px;
+  height: 80px;
+  height: 80px;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+.card-list {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+.edit:hover{
+  color: #333333;
+}

@@ -1,0 +1,41 @@
+<div class="modal-header">
+  <h4 class="modal-title">Ajouter tache </h4>
+  <span typeField="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+    <i class="fas fa-close"></i>  <span aria-hidden="true"></span>
+  </span>
+</div>
+<div class="modal-body">
+  <form #f="ngForm" (ngSubmit)="save()">
+    <div class="form-group">
+      <mat-form-field style="width: 100%" >
+        <mat-label>Type </mat-label>
+        <mat-select [(value)]="issueType" >
+          <mat-option *ngFor="let type of issueTypes" [value]="type" style="z-index: 1060">{{type.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field style="width: 100%">
+        <mat-label>Titre </mat-label>
+        <input
+          matInput
+          [(ngModel)]="summary"
+          [ngModelOptions]="{standalone: true}"
+          class="form-control"
+          typeField="text">
+      </mat-form-field>
+      <mat-form-field style="width: 100%">
+        <mat-label>Description</mat-label>
+        <textarea matInput
+                  cdkTextareaAutosize
+                  #autosize="cdkTextareaAutosize"
+                  cdkAutosizeMinRows="1"
+                  [(ngModel)]="description"
+                  [ngModelOptions]="{standalone: true}"
+                  cdkAutosizeMaxRows="5"></textarea>
+      </mat-form-field>
+
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button typeField="button" class="btn btn-primary" (click)="save()">Enregistrer</button>
+</div>

@@ -1,0 +1,20 @@
+<div class="">
+  <div class="modal-body ">
+    <div class="custom-field">
+      <div>
+        <h1> Champ personnalisé </h1>
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-action pointer-event" *ngFor="let field of customFields" (click)="editCustomField(field)">
+            <app-icone-view [icon]="getIcone(field)" [width]="'fa-1x'"></app-icone-view>
+            {{ field.name }}
+          </li>
+          <li class="list-group-item list-group-item-action" style="text-align: center;margin-top: 5px" (click)="newCustomField()" > <i class="fas fa-plus-square"> </i> Nouveau</li>
+
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

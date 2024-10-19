@@ -1,0 +1,33 @@
+<div class="projet">
+  <div class="menu">
+    <h3>Planing </h3>
+    <ul>
+      <li class="menu-item controle" routerLinkActive="active" routerLink="liste">
+        <i class="fas fa-tasks"></i> Liste des tâches
+      </li>
+      <li class="menu-item controle" routerLinkActive="active" routerLink="board">
+        <i class="fas fa-chart-bar"></i> Tableau de bord
+      </li>
+      <li class="menu-item controle " routerLinkActive="active">
+        <i class="fas fa-calendar"></i> Planning
+      </li>
+      <li class="menu-item controle" routerLinkActive="active" routerLink="gantt-chart">
+        <i class="fas fa-chart-line"></i> Diagramme de Gantt
+      </li>
+
+      <li class="menu-item controle" *ngIf="authGuard.hasAutority(['CAN_CONFIGURE_SYSTEM']) | async" routerLinkActive="active" routerLink="rapport">
+        <i class="fas fa-chart-pie"></i> Rapports
+      </li>
+      <li class="menu-item controle" *ngIf="authGuard.hasAutority(['CAN_CONFIGURE_SYSTEM']) | async" routerLinkActive="active" routerLink="calendar">
+        <i class="fas fa-calendar-alt"></i> Calendrier des ressources
+      </li>
+      <li class="menu-item controle" *ngIf="authGuard.hasAutority(['CAN_CONFIGURE_SYSTEM']) | async" routerLinkActive="active" routerLink="config">
+        <i class="fas fa-cog"></i> Config
+      </li>
+    </ul>
+  </div>
+
+  <div class="project-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

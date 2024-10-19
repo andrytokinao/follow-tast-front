@@ -1,0 +1,67 @@
+<mat-dialog-content>
+  <mat-toolbar>
+    <div class="mat-toolbar-tools template-background">
+      <h2> Config custom field : {{ customField.name }} </h2>
+    </div>
+    <button (click)="onCancelClick()" class="float-end btn-close"></button>
+  </mat-toolbar>
+  <mat-tab-group>
+    <mat-tab label="Type de tache ">
+      <mat-card class="mat-padding">
+        <div class="sidebar-heding row">
+            <div class="list-container">
+              <ul>
+                <li *ngFor="let it of issueTypes; " (click)="toggleCheck(it)">
+                  <label >
+                    <app-icone-view [icon]="it.icone" [width]="'fa-1x'"></app-icone-view>
+                    <span>{{ it.name }}</span>
+
+                  </label>
+                  <input
+                    type="checkbox"
+                    [id]="'type-' + it.id"
+                    class="checkbox-right"
+                    [checked]="isUsing(it)"
+                  >
+                </li>
+              </ul>
+            </div>
+        </div>
+      </mat-card>
+    </mat-tab>
+    <mat-tab label="Affichage">
+      <mat-card class="mat-padding">
+        <div class="sidebar-heding ">
+          <div class="item items-right">
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-action pointer-event" > Affiche si vide   </li>
+              <li class="list-group-item list-group-item-action pointer-event" > Afficher lors de la liste  </li>
+            </ul>
+            <div class="list-container">
+              <ul>
+                <li *ngFor="let issueType of issueTypes">
+                  <span>{{ issueType.name }}</span>
+                  <input type="checkbox" [checked]="isUsing(issueType)" class="checkbox-right">
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </mat-tab>
+    <mat-tab label="Valeur par defaut">
+      <mat-card class="mat-padding">
+        <div class="sidebar-hedingd   ">
+
+        </div>
+      </mat-card>
+    </mat-tab>
+  </mat-tab-group>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div style="padding: 10px">
+    <span fxFlex></span>
+    <button mat-raised-button class="btn success" color="primary" (click)="onSaveClick()"><span> Terminer </span>
+    </button>
+  </div>
+</mat-dialog-actions>
